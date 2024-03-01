@@ -4,9 +4,9 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       #タイトル
       t.string :title, null: false
       #コンテンツ
-      t.string :content, null :false
+      t.string :content, null: false
       #学習時間
-      t.string :time, null :false
+      t.string :time, null: false
       t.timestamps
     end
   end
