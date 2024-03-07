@@ -4,7 +4,7 @@ class Post < ApplicationRecord
 
   # throughを利用して、tag_mapsを通してtagsとの関連付け(中間テーブル)
   #   Post.tagsとすれば、Postに紐付けられたTagの取得が可能
-  has_many :tags, through: :post_tag
+  has_many :tags, through: :post_tags
 
   # バリデーション
   validates :title, presence: true
