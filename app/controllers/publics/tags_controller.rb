@@ -1,4 +1,4 @@
-class Public::TagsController < ApplicationController
+class Publics::TagsController < ApplicationController
 
   def index
     @tags = Tag.all

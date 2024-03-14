@@ -1,4 +1,5 @@
-class Public::PostsController < ApplicationController
+class Publics::PostsController < ApplicationController
+  
   def index
     @posts = Post.all
   end
