@@ -9,12 +9,12 @@ Rails.application.routes.draw do
     sessions: 'publics/sessions',
     passwords: 'users/passwords'
   }
-  
+
   devise_scope :user do
     post 'users/guest_sign_in', to: 'publics/sessions#guest_sign_in'
   end
-  
-  
+
+
   namespace :admins do
     get '/' => 'homes#top', as: 'top'
     resources :comments, except: %w[new]
@@ -22,17 +22,17 @@ Rails.application.routes.draw do
     resources :end_users, except: %w[new create]
     resources :tags, except: %w[show]
   end
-  
+
   scope module: :publics do
     root to: 'posts#index'
     resources :posts do
       resources :comments, except: %w[new index]
     end
-    
+
     get 'search' => 'searches#search'
     resource :likes, only: %w[create destroy]
-    resources :tags, except: %w[index show destroy]
-    
+    resources :tags, only: %w[index show destroy]
+
     resources :users, only: %w[show edit update] do
       member do
         get :confirm

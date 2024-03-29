@@ -1,13 +1,13 @@
-<h1>Posts#index</h1>
+<h2>トップページ</h2>
 
 
-<h2>Posts Actions</h2>
+<h3>投稿ページ</h3>
 <%= link_to 'New Post', new_post_path %>
 
-<h2>Tag Actions</h2>
+<h3>タグページ</h3>
 <%= link_to 'Tags List', tags_path %>
 
-<h2>Posts</h2>
+<h3>すべての投稿</h3>
 <%= @posts.each do |post| %>
   <div>
     <%= link_to post.title, post_path(post) %>
