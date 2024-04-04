@@ -1,15 +1,26 @@
 <h2>トップページ</h2>
+  <% if @post.errors.any? %>
+    <div class="alert alert-danger" role="alert">投稿内容を入力してください</div>
+  <% end %>
+  <div class="text-success">
+    <%= flash[:notice] %>
+  </div>
+  <div class="text-danger">
+    <%= flash[:alret] %>
+  </div>
+  <h3>投稿ページ</h3>
+  <%= link_to 'New Post', new_post_path %>
+  
+  <h3>タグページ</h3>
+  <%= link_to 'Tags List', tags_path %>
+  
+  <h3>すべての投稿</h3>
 
-
-<h3>投稿ページ</h3>
-<%= link_to 'New Post', new_post_path %>
-
-<h3>タグページ</h3>
-<%= link_to 'Tags List', tags_path %>
-
-<h3>すべての投稿</h3>
 <%= @posts.each do |post| %>
   <div>
-    <%= link_to post.title, post_path(post) %>
+    <%= post.title %>
+    <%= post.content %>
+    <%= post.time %>
   </div>
 <% end %>
+
