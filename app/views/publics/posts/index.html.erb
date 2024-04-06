@@ -8,13 +8,13 @@
   <div class="text-danger">
     <%= flash[:alret] %>
   </div>
-  <h3>投稿ページ</h3>
-  <%= link_to 'New Post', new_post_path %>
-  
-  <h3>タグページ</h3>
-  <%= link_to 'Tags List', tags_path %>
-  
-  <h3>すべての投稿</h3>
+<h3>投稿ページ</h3>
+<%= link_to 'New Post', new_post_path %>
+
+<h3>タグページ</h3>
+<%= link_to 'Tags List', tags_path %>
+
+<h3>すべての投稿</h3>
 
 <%= @posts.each do |post| %>
   <div>

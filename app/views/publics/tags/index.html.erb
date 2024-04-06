@@ -1,9 +1,8 @@
 <h2>タグページ</h2>
-<p>Find me in app/views/tags/index.html.erb</p>
 
-<h4>トップページへ移動</h4>
-<%= link_to 'Top', root_path %>
-
+<h4>
+  <%= link_to 'トップページへ移動', root_path %>
+</h4>
 <h4>作成されたタグ</h4>
 <ul>
   <% @tags.each do |tag| %>
