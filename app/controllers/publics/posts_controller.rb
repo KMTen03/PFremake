@@ -1,8 +1,12 @@
 class Publics::PostsController < ApplicationController
   
+  def new
+    @post = Post.new
+  end
+  
   def index
+    @post = Post.new
     @posts = Post.all
-    @post = 
   end
 
   def show
