@@ -6,7 +6,8 @@ class Publics::PostsController < ApplicationController
   
   def index
     @post = Post.new
-    @posts = Post.all
+    @posts = Post.page(params[:page]).per(10)
+    @tag_list = Tag.all
   end
 
   def show
@@ -50,6 +51,6 @@ class Publics::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, :time, )
   end
 end

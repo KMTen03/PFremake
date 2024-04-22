@@ -48,6 +48,5 @@ class Post < ApplicationRecord
       #   配列追加のようにレコードを渡すことで新規レコード作成が可能
       self.tags << new_post_tag
     end
-
   end
 end

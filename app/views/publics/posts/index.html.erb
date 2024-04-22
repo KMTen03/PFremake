@@ -14,6 +14,10 @@
 <h3>タグページ</h3>
 <%= link_to 'Tags List', tags_path %>
 
+
+<% @tag_list.each do |list| %>
+<%= list.name %>
+
 <h3>すべての投稿</h3>
 
 <%= @posts.each do |post| %>
