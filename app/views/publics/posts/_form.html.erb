@@ -1,21 +1,21 @@
 <h4>投稿フォーム</h4>
   <%= form_with model: Post.new do |f| %>
     <div class="field">
-      <%= f.label :title, 'タイトル' %><br>
-      <%= f.text_field :title %><br>
+      <br>
+      <%= f.text_field :title, placeholder: 'タイトル' %><br>
     </div>
     <div class="field">
-      <%= f.label :content, 'コンテンツ' %><br>
-      <%= f.text_area :content %><br>
+      <br>
+      <%= f.text_area :content, placeholder: 'コンテンツ' %><br>
     </div>
     <div class="field">
-      <%= f.label :title, '時間' %><br>
-      <%= f.number_field :time, size: "25" %></br>
+      <br>
+      <%= f.number_field :time, size: "25", placeholder: '時間' %></br>
     </div>
     <div class="field">
-      <%= f.label :tag, 'タグ' %><br>
+      <br>
       <%# Edit用に@post.tags.pluck(:name)でタグの配列を取得 %>
-      <%= f.text_field :tag, value: @post.tags.pluck(:name) %><br>
+      <%= f.text_field :tag, value: @post.tags.pluck(:name), placeholder: 'タグ' %><br>
     </div>
     <small>スペースで区切ることで複数指定できます。</small><br>
     <%= f.submit %>

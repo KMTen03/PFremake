@@ -1,31 +1,33 @@
-<h2>トップページ</h2>
-  <% if @post.errors.any? %>
-    <div class="alert alert-danger" role="alert">投稿内容を入力してください</div>
-  <% end %>
-  <div class="text-success">
-    <%= flash[:notice] %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>トップページ</h2>
+        <% if @post.errors.any? %>
+          <div class="alert alert-danger" role="alert">投稿内容を入力してください</div>
+        <% end %>
+        <div class="text-success">
+          <%= flash[:notice] %>
+        </div>
+        <div class="text-danger">
+          <%= flash[:alret] %>
+        </div>
+
+          <h4><%= link_to '投稿ページ', new_post_path %></h4>
+          <h4><%= link_to 'タグページ', tags_path %></h4>
+
+          <% @tag_list.each do |tag| %>
+            <%= tag.name %>
+          <% end %>
+
+      <h4>すべての投稿</h4>
+
+      <% @posts.each do |post| %>
+        <div>
+          <%= post.title %>
+          <%= post.content %>
+          <%= post.time %>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <div class="text-danger">
-    <%= flash[:alret] %>
-  </div>
-<h3>投稿ページ</h3>
-<%= link_to 'New Post', new_post_path %>
-
-<h3>タグページ</h3>
-<%= link_to 'Tags List', tags_path %>
-
-
-<% @tag_list.each do |list| %>
-  <%= list.name %>
-<% end %>
-
-<h3>すべての投稿</h3>
-
-<% @posts.each do |post| %>
-  <div>
-    <%= post.title %>
-    <%= post.content %>
-    <%= post.time %>
-  </div>
-<% end %>
-
+</div>
