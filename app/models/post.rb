@@ -7,6 +7,7 @@ class Post < ApplicationRecord
   has_many :tags, through: :post_tags
 
   # バリデーション
+  validates :tag_ids, presence: true
   validates :title, presence: true
   validates :content, presence: true
   validates :time, presence: true
