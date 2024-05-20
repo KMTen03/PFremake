@@ -51,6 +51,5 @@ class Post < ApplicationRecord
     end
   end
   
-  def update
-  end
+
 end
