@@ -4,14 +4,13 @@
       <h2>トップページ</h2>
         <% if @post.errors.any? %>
           <div class="alert alert-danger" role="alert">投稿内容を入力してください</div>
+          <div class="text-success">
+            <%= flash[:notice] %>
+          </div>
+          <div class="text-danger">
+            <%= flash[:alret] %>
+          </div>
         <% end %>
-        <div class="text-success">
-          <%= flash[:notice] %>
-        </div>
-        <div class="text-danger">
-          <%= flash[:alret] %>
-        </div>
-
           <h4><%= link_to '投稿ページ', new_post_path %></h4>
           <h4><%= link_to 'タグページ', tags_path %></h4>
 
