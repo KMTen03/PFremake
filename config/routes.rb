@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     get '/' => 'homes#top', as: 'top'
     resources :comments, except: %w[new]
     resources :posts, except: %w[new]
-    resources :end_users, except: %w[new create]
+    resources :users, except: %w[new create]
     resources :tags, except: %w[show]
   end
 

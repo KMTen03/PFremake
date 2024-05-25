@@ -1,0 +1,48 @@
+<div>
+  <%= flash[:notice] %>
+</div>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <%= link_to user_path(@user.id) do %>
+        <%= image_tag @user.get_profile_image(75,75) %>
+      <% end %>
+      <h6>ユーザー名</h6>
+      <%= @user.name %>
+      <h6>自己紹介</h6>
+      <%= @user.introduce %>
+      <%= link_to edit_user_path(@user.id), class:"btn btn-light btn-lg" do %>
+        <i class="fas fa-cog">プロフィール編集</i>
+      <% end %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <h4>ユーザー投稿内容</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th colspan="1"></th>
+            <th>タイトル</th>
+            <th>学習時間</th>
+            <th>学習内容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @posts.each do |post| %>
+            <tr>
+              <td>
+                <%= image_tag post.user.get_profile_image(50,50) %>
+              </td>
+              <td>
+                <%= link_to post.title, post_path(post.id) %>
+              </td>
+              <td><%= post.time %></td>
+              <td><%= post.content %></td>
+            </tr>
+          <% end %>
+          <%= paginate @posts %>
+        </tbody>
+      </table>
+      <%= link_to "お気に入り投稿", likes_user_path(@user) %>
+    </div>
+  </div>
+</div>
