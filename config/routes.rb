@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  namespace :admins do
+    get 'favorites/create'
+    get 'favorites/destroy'
+  end
+  namespace :publics do
+    get 'favorites/create'
+    get 'favorites/destroy'
+  end
   devise_for :admins, controllers: {
     sessions: 'admins/sessions'
   }
