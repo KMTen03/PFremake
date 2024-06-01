@@ -1,0 +1,12 @@
+<td id="like-<%= post.id %>">
+  <% if Favorite.find_by(user_id: current_user.id, post_id: post.id) %>
+    <%= link_to "/functions/#{post.id}/likes", method: :delete %>
+      <i class="material-icons">star</i>
+    <% end %>
+  <% else %>
+    <%= link_to "/functions/#{post.id}/likes", method: :post %>
+      <i class="material-icons">star_border</i>
+      <% end %>
+  <% end %>
+  <%= post.favorites.length %>
+</td>

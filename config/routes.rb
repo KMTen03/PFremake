@@ -34,11 +34,12 @@ Rails.application.routes.draw do
   scope module: :publics do
     root to: 'posts#index'
     resources :posts do
-      resources :comments, except: %w[new index]
+      resource :comments, except: %w[new index]
+      resource :favorites, only: %w[create destroy]
     end
 
     get 'search' => 'searches#search'
-    resource :likes, only: %w[create destroy]
+    
     resources :tags, only: %w[index show destroy]
 
     resources :users, only: %w[show edit update] do

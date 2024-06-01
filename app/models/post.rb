@@ -1,10 +1,9 @@
 class Post < ApplicationRecord
-# dependent: :destroyでPostが削除されると同時にPostとTagの関係が削除される
-  has_many :post_tags, dependent: :destroy
 
-  # throughを利用して、tag_mapsを通してtagsとの関連付け(中間テーブル)
-  #   Post.tagsとすれば、Postに紐付けられたTagの取得が可能
+  belongs_to :user
+  has_many :post_tags, dependent: :destroy
   has_many :tags, through: :post_tags
+  
 
   # バリデーション
   validates :tag_ids, presence: true
@@ -50,6 +49,20 @@ class Post < ApplicationRecord
       self.tags << new_post_tag
     end
   end
+  
+  def favorited?(user)
+    #1 favorited?(user)として、メソッドに引数を指定する。
+   favorites.where(user_id: user.id).exists?
+    #2 その引数(current_user)のidと等しいuser_idを持つレコードは、
+    # favoritesテーブル内に存在するか？をexists?を用いて判断する
+  end
+    #これによりいいねボタンがクリックされた際、
+    #・一致するレコードが存在しない＝「まだいいねしていない→createアクションへ」
+    #・一致するレコードが存在する　＝「すでにいいね済み→destroyアクションへ」
+    #と分岐させることができる。
+
+
+
   
 
 end
