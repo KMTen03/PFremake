@@ -1,14 +1,12 @@
-<h2>タグページ</h2>
+<h2>タグ</h2>
 
-<h4>
-  <%= link_to 'トップページへ移動', root_path %>
-</h4>
+<h4><%= link_to 'トップページへ移動', root_path %></h4>
 <h4>作成されたタグ</h4>
 <ul>
-  <% @tags.each do |tag| %>
-    <li>
+  <%# @tags.each do |tag| %>
+<!--    <li>-->
       <%# タグの名前と、関連付く記事数を表示 %>
-      <%= link_to "#{tag.name} ( Posts: #{tag.posts.count} )", tag_path(tag) %>
-    </li>
-  <% end %>
-</ul>
+      <%#= link_to "#{tag.name} ( Posts: #{tag.posts.count} )", tag_path(tag) %>
+<!--    </li>-->
+  <%# end %>
+<!--</ul>-->
