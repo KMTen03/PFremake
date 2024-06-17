@@ -5,7 +5,7 @@ class Tag < ApplicationRecord
 
   # postsのアソシエーション
   #   Tag.postsとすれば、タグに紐付けられたPostを取得可能になる
-  has_many :posts, through: :post_tags
+  has_many :posts, through: :post_tags, dependent: :destroy
   
   # バリデーション
   validates :title, presence: true

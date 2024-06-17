@@ -10,15 +10,14 @@
       <br>
     </div>
   <% end %>
-  <%= form_with model: @post do |f| %>
-      <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
-        <div class='form-check'>
-          <%= tag.label class: 'form-check-label' do %>
-            <%= tag.check_box class: 'form-check-input' %>
-            <%= tag.text %>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
+  <%#= form_with model: @post do |f| %>
+    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+      <div class='form-check'>
+        <%= tag.label class: 'form-check-label' do %>
+          <%= tag.check_box class: 'form-check-input' %>
+          <%= tag.text %>
+        <% end %>
+      </div>
+    <% end %>
     <%= f.submit %>
-  <% end %>
+  <%# end %>

@@ -1,10 +1,8 @@
 <h2>新規投稿ページ</h2>
 <p>こちらのページから投稿可能です</p>
 <h3>
-    <%= link_to 'トップページへ移動', root_path %>
+  <%= link_to 'トップページへ移動', root_path %>
 </h3>
 
 <h3>投稿はこちら</h3>
-<%= form_with model: @post do |post| %>
-  <%= render 'form', post: post %>
-<% end %>
+<%= render 'form', post: @post %>
