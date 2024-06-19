@@ -1,5 +1,6 @@
 <h4>投稿フォーム</h4>
-  <%= form_with model: Post.new do |f| %>
+  <!--投稿の本文-->
+  <%= form_with model: post do |f| %>
     <div class='from-group'>
       <br>
         <%= f.text_field :title, placeholder: 'タイトル' %><br>
@@ -9,9 +10,8 @@
         <%= f.number_field :time, size: "25", placeholder: '時間' %></br>
       <br>
     </div>
-  <% end %>
-  <%#= form_with model: @post do |f| %>
-    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+    <!--タグ投稿フォーム-->
+    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name, include_hidden: false) do |tag| %>
       <div class='form-check'>
         <%= tag.label class: 'form-check-label' do %>
           <%= tag.check_box class: 'form-check-input' %>
@@ -19,5 +19,8 @@
         <% end %>
       </div>
     <% end %>
-    <%= f.submit %>
-  <%# end %>
+    <!--投稿ボタン-->
+    <%= button_tag type: "submit", class:"btn btn-info" do %>
+      <i class="fa-solid fa-pen-to-square"></i>投稿する
+    <% end %>
+  <% end %>
