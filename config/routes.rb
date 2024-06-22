@@ -1,13 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :admins do
-    get 'favorites/create'
-    get 'favorites/destroy'
-  end
-  namespace :publics do
-    get 'favorites/create'
-    get 'favorites/destroy'
-  end
   devise_for :admins, controllers: {
     sessions: 'admins/sessions'
   }
@@ -29,10 +21,12 @@ Rails.application.routes.draw do
     resources :posts, except: %w[new]
     resources :users, except: %w[new create]
     resources :tags, except: %w[show]
+    resources :favorites, only: %w[create destroy]
   end
 
   scope module: :publics do
     root to: 'posts#index'
+    
     resources :posts do
       resource :comments, except: %w[new index]
       resource :favorites, only: %w[create destroy]
@@ -41,7 +35,8 @@ Rails.application.routes.draw do
     get 'search' => 'searches#search'
     
     resources :tags, only: %w[index show destroy]
-
+    resources :favorites, only: %w[create destroy]
+    
     resources :users, only: %w[show edit update] do
       member do
         get :confirm

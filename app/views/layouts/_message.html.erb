@@ -1,9 +1,13 @@
-<% if resource.errors.any? %>
-  <div class="alert alert-danger">
-    <ul>
-      <% resource.errors.full_messages.each do |message| %>
-        <li class="error-message"><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
+<!--フラッシュメッセージの部分テンプレート-->
+<% flash.each do |message_type, message| %>
+  <div class="alert alert-<%= message_type %> text-center"><%= message %></div>
 <% end %>
+<!--<%# if resource.errors.any? %>-->
+<!--  <div class="alert alert-danger">-->
+<!--    <ul>-->
+<!--      <%# resource.errors.full_messages.each do |message| %>-->
+<!--        <li class="error-message"><%#= message %></li>-->
+<!--      <%# end %>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--<%# end %>-->
