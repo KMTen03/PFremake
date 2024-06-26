@@ -1,69 +1,69 @@
 <% if user_signed_in? %>
   <%= render partial: 'publics/searches/search', search: @search %>
   <li>
-    <%= link_to posts_path, class:"btn btn-light" do %>
-      <i class="fas fa-home">ホーム</i>
+    <%= link_to posts_path, class:'btn btn-light' do %>
+      <i class='fas fa-home'></i>
     <% end %>
   </li>
   <li>
     <%= link_to user_path(current_user), class:'btn btn-light' do %>
-      <i class="fas fa-id-card">ユーザー情報</i>
+      <i class='fas fa-id-card'></i>
     <% end %>
   </li>
   <li>
-    <%= link_to likes_user_path(current_user), class:"btn btn-light" do %>
-      <i class="fas fa-star">お気に入り</i>
+    <%= link_to likes_user_path(current_user), class:'btn btn-light' do %>
+      <i class='fas fa-star'></i>
     <% end %>
   <li>
     <%= link_to destroy_user_session_path, method: :delete, class:'btn btn-light' do %>
-      <i class="fas fa-sign-out-alt">ログアウト</i>
+      <i class='fas fa-sign-out-alt'></i>
     <% end %>
   </li>
 <% elsif admin_signed_in? %>
   <li>
     <%= link_to admins_posts_path, class:'btn btn-light' do %>
-      <i class="fas fa-home">ホーム</i>
+      <i class='fas fa-home'>ホーム</i>
     <% end %>
   </li>
   <li>
     <%= link_to admins_users_path, class:'btn btn-light' do %>
-       <i class="fas fa-users">会員管理</i>
+       <i class='fas fa-users'>会員管理</i>
     <% end %>
   </li>
   <li>
     <%= link_to admins_tags_path, class:'btn btn-light' do %>
-      <i class="fas fa-tag">タグ管理</i>
+      <i class='fas fa-tag'>タグ管理</i>
     <% end %>
   </li>
   <li>
     <%= link_to admins_comments_path, class:'btn btn-light' do %>
-      <i class="fas fa-comment-alt">コメント管理</i>
+      <i class='fas fa-comment-alt'>コメント管理</i>
     <% end %>
   </li>
   <li>
     <%= link_to destroy_admin_session_path, method: :delete, class:'btn btn-light' do %>
-       <i class="fas fa-sign-out-alt">ログアウト</i>
+       <i class='fas fa-sign-out-alt'></i>
     <% end %>
   </li>
 <% else %>
   <li>
     <%= link_to new_user_registration_path, class:'btn btn-light' do %>
-       <i class="fas fa-user-plus">新規登録</i>
+       <i class='fas fa-user-plus'></i>
     <% end %>
   </li>
   <li>
     <%= link_to new_user_session_path, class:'btn btn-light' do %>
-      <i class="fas fa-sign-in-alt">ログイン</i>
+      <i class='fas fa-sign-in-alt'></i>
     <% end %>
   </li>
   <li>
     <%= link_to users_guest_sign_in_path, method: :post, class:'btn btn-light' do %>
-      <i class="fas fa-street-view">ゲストログインはこちら</i>
+      <i class='fas fa-street-view'></i>
     <% end %>
   </li>
   <li>
     <%= button_to admin_session_path, class:'btn btn-light', method: :post do %>
-      <i class="fa-solid fa-arrow-right-to-bracket">管理者ログイン</i>
+      <i class='fa-solid fa-arrow-right-to-bracket'></i>
     <% end %>
   </li>
 <% end %>

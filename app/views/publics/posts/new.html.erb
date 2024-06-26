@@ -1,8 +1,14 @@
-<h2>新規投稿ページ</h2>
-<p>こちらのページから投稿可能です</p>
-<h3>
-  <%= link_to 'トップページへ移動', root_path %>
-</h3>
-
-<h3>投稿はこちら</h3>
-<%= render 'form', user: @user, post: @post %>
+<div class='container'>
+  <div class='row'>
+    <div class='col'>
+    <h3>投稿ページ</h3>
+    <p>こちらのページから投稿可能です</p>
+    <h5>
+      <%= link_to 'トップページへ移動', root_path %>
+    </h5>
+    
+    <h4>投稿はこちら</h4>
+    <%= render 'form', user: @user, post: @post %>
+    </div><!--col-->
+  </div><!--row-->
+</div><!--container-->

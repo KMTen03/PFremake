@@ -1,16 +1,16 @@
-<h2>詳細ページ</h2>
+<h3>詳細ページ</h3>
 <p>こちらはの詳細な内容です。</p>
 
 <h2></h2>
 <%= link_to 'トップページへ', root_path %>
 
-<h3>タイトル</h3>
+<h4>タイトル</h4>
 <%= @post.title %>
 
 　<% if post.favorited?(current_user) %>
 　<!--favorited?メソッドを呼び出し-->
     <%= link_to post_favorites_path(@post.id), method: :delete do %>
-      <span style="color:red;">❤︎</span>
+      <span style='color:red;'>❤︎</span>
     <% end %>
     <!--一致するレコードが存在する=いいね済みの場合はdestroyアクションへ-->
   <% else %>
@@ -21,14 +21,14 @@
     <!--一致するレコードが存在しない=まだいいねしていない場合はcreateアクションへ-->
   <% end %>
 
-<h3>コンテンツ内容</h3>
-<%# simple_formatは、pタグで囲み、改行コードをbrに変換する %>
+<h4>コンテンツ内容</h4>
+
 <%= simple_format(@post.content) %>
 
 <%= link_to '編集', edit_post_path(@post) %>
 <%= link_to '削除', post_path(@post), method: :delete, data: {confirm: '削除しますか？'} %>
 
-<h3>タグ</h3>
+<h4>タグ</h4>
 <ul>
   <!--該当のPostからアソシエーションでタグを取得-->
   <% @post.tags.each do |tag| %>
