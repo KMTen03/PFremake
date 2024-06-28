@@ -13,17 +13,19 @@
       </div><!--form-group-->
       <!--タグ投稿フォーム-->
       <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name, include_hidden: false) do |tag| %>
-        <div class='form-check'>
+        <div class='form-check form-check-inline flex flex-wrap'>
           <%= tag.label class: 'form-check-label' do %>
             <%= tag.check_box class: 'form-check-input' %>
             <%= tag.text %>
           <% end %>
         </div><!--form-check-->
       <% end %>
+      
       <!--投稿ボタン-->
       <%= button_tag type: 'submit', class:'btn btn-info' do %>
         <i class='fa-solid fa-pen-to-square'></i>投稿する
       <% end %>
+      
     <% end %>
   </div><!--card-body-->
 </div><!--card-container-->

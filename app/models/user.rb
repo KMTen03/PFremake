@@ -11,6 +11,8 @@ class User < ApplicationRecord
   
 
   validates :introduce, length: { maximum: 200 }
+  
+
 
   def self.guest
     find_or_created_by!(email: "guest@example.com") do |guest|
@@ -18,6 +20,10 @@ class User < ApplicationRecord
       guest.name = "ゲスト"
       guest.is_deleted = false
     end
+  end
+
+  def guest_user?
+    email == "guest@example.com"
   end
 
   def self.ranking

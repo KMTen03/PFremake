@@ -1,25 +1,34 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-
-      <!--エラーが生じた際のフラッシュメッセージ-->
-      <%= render "layouts/message" %>
-      
+<!--エラーが生じた際のフラッシュメッセージ-->
+<%= render 'layouts/message' %>
+<div class='container'>
+  <div class='row'>
+    <div class='col-3'>
+      <%= render 'form', user: @user, post: @post %>
+    </div><!--col-->
+    <div class='col-md-6 offset-md-1'>
       <h4>すべての投稿</h4>
+      <table class='table table-hover'>
       <!--全ユーザーの投稿内容-->
-      <% @posts.each do |post| %>
-        <div class="post-content">
-          <%= post.title %>
-          <%= post.content %>
-          <%= post.time %>
-        </div>
-      <% end %>
+        <% @posts.each do |post| %>
+        <tr>
+          <div class='post-content'>
+            <td><%= post.title %></td>
+            <td><%= post.time %></td>
+            <td><%= post.content %></td>
+
+          </div>
+        </tr>
+        <% end %>
+        <!--作成されたタグ-->
+        <% @tag_list.each do |tag| %>
+          <%= tag.name %>
+        <% end %>
+      </table>
+
       <h4><%= link_to '投稿ページ', new_post_path %></h4>
-      <!--作成されたタグ-->
-      <% @tag_list.each do |tag| %>
-        <%= tag.name %>
-      <% end %>
+
       <h4><%= link_to 'タグページ', tags_path %></h4>
-    </div>
-  </div>
-</div>
+
+    </div><!--col-->
+  </div><!--row-->
+</div><!--container-->
