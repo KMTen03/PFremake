@@ -1,5 +1,8 @@
 <div class='card-container'>
   <div class='card-body'>
+    
+    <p>ここから投稿可能です</p>
+
     <%= form_with model: post do |f| %>
     <!--投稿フォーム-->
       <div class='from-group'>
@@ -11,6 +14,7 @@
           <%= f.number_field :time, size: '25', placeholder: '時間' %></br>
         <br>
       </div><!--form-group-->
+      
       <!--タグ投稿フォーム-->
       <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name, include_hidden: false) do |tag| %>
         <div class='form-check form-check-inline flex flex-wrap'>

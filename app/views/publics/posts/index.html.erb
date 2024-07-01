@@ -1,5 +1,5 @@
-<!--エラーが生じた際のフラッシュメッセージ-->
 <%= render 'layouts/message' %>
+<!--エラーが生じた際のフラッシュメッセージ-->
 <div class='container'>
   <div class='row'>
     <div class='col-3'>
@@ -12,10 +12,13 @@
         <% @posts.each do |post| %>
         <tr>
           <div class='post-content'>
-            <td><%= post.title %></td>
+            <td>
+              <%= link_to post_path(post.id) do %>
+                <%= post.title %>
+              <% end %>
+            </td>
             <td><%= post.time %></td>
             <td><%= post.content %></td>
-
           </div>
         </tr>
         <% end %>
@@ -25,7 +28,7 @@
         <% end %>
       </table>
 
-      <h4><%= link_to '投稿ページ', new_post_path %></h4>
+      <h4><%#= link_to '投稿ページ', new_post_path %></h4>
 
       <h4><%= link_to 'タグページ', tags_path %></h4>
 
