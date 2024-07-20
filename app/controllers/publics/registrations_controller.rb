@@ -6,7 +6,7 @@ class Publics::RegistrationsController < Devise::RegistrationsController
 
   before_action :ensure_normal_user, only: [:edit, :update, :destroy]
   
-  def ensure_normal_user
+  def ensure_normal_user #ゲストユーザーがパスワードを変更できないようにする
     if resource.email == 'guest@example.com'
       redirect_to root_path, alert: 'ゲストユーザーの更新・削除できません。'
     end
@@ -14,7 +14,7 @@ class Publics::RegistrationsController < Devise::RegistrationsController
 
   private
   
-  def configure_sign_up_params
+  def configure_sign_up_params #新規登録には名前とメアドが必要
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email])
   end
 end

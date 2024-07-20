@@ -61,8 +61,12 @@ class Post < ApplicationRecord
     #・一致するレコードが存在する　＝「すでにいいね済み→destroyアクションへ」
     #と分岐させることができる。
 
+  def self.search(keyword) #検索機能
+    where("title LIKE ? or learning_time LIKE ? or learning_content LIKE ?", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%")
+    # keywordのところに検索した文字列が適用され、そこからタイトルなのか、学習内容の検索なのか判定する
+  end
 
-
-  
-
+  def self.get_ranking(post) #なぜここに検索機能が
+    find(Like.group(:post_id).order('count(post_id) desc').pluck(:post_id))
+  end
 end

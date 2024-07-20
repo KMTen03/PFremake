@@ -51,4 +51,8 @@ class Publics::PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :content, :time, :tag, tag_ids: [])
   end
+  
+  def rank
+    @post_ranks = Post.get_ranking(@post)
+  end
 end

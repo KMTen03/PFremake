@@ -8,7 +8,7 @@ class Publics::SessionsController < Devise::SessionsController
     redirect_to posts_path, notice: 'ゲストユーザーとしてログインしました。'
   end
 
-  def user_state
+  def user_state #ユーザーのステータスを確認する
     @user = user.find_by(email: params[:user][:email])
     if @user.valid_password?(params[:user][:password]) && @user.is_deleted
       flash[:notice] = "退会済みです。再度ご登録をしてご利用ください。"
