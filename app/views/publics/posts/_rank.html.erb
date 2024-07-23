@@ -4,24 +4,24 @@
     <th>ユーザー名</th>
     <th>いいね数</th>
   </tr>
-<% @post_like_ranks.each.with_index(1) do |post, i| %>
+<% @post_ranks.each.with_index(1) do |post, i| %>
 <% if i == 1 %>
   <tr>
     <td><%= image_tag("first_icon.jpeg") %><%= i %>位</td>
     <td><%= post.user.name %></td>
-    <td><%= post.likes.count %></td> 
+    <td><%= post.favorites.count %></td> 
   </tr>
   <% elsif i == 2 %>
   <tr>
     <td><%= image_tag("second_icon.jpeg") %><%= i %>位</td>
     <td><%= post.user.name %></td>
-    <td><%= post.likes.count %></td> 
+    <td><%= post.favorites.count %></td> 
   </tr>
   <% elsif i == 3 %>
   <tr>
     <td><%= image_tag("third_icon.jpeg") %><%= i %>位</td>
     <td><%= post.user.name %></td>
-    <td><%= post.likes.count %></td> 
+    <td><%= post.favorites.count %></td> 
   </tr>
   <% else %> 
   <tr>
