@@ -2,25 +2,27 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-        <h2>投稿内容編集</h2>
-        <%= form_with model: @post do |f| %>
-          <div class="field">
-            <%= f.label :title, "タイトル" %><br>
-            <%= f.text_field :title, size: "25" %></br>
-          </div>
-          <div class="field">
-            <%= f.label :learning_content, "学習内容" %><br>
-            <%= f.text_area :learning_content, size: "30" %></br>
-          </div>
-          <div class="form-group m-5">タグ</div>
+      <h2>投稿内容編集</h2>
+      
+      <%= form_with model: @post do |f| %>
+        <div class="field">
+          <%= f.label :title, "タイトル" %><br>
+          <%= f.text_field :title, size: "25" %></br>
+        </div><!--field-->
+        <div class="field">
+          <%= f.label :learning_content, "学習内容" %><br>
+          <%= f.text_area :learning_content, size: "30" %></br>
+        </div><!--field-->
+        <div class="form-group m-5">タグ</div>
 
 <!--ここにtagform.html.erbを挿入-->
 
-          <div class="actions">
-            <%= f.submit '再投稿する' %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
+        <div class="actions">
+          <%= f.submit '再投稿する' %>
+        </div>
+      <% end %>
+
+    </div><!--col-->
+  </div><!--row-->
+</div><!--container-->
+
