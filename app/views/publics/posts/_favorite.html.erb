@@ -1,0 +1,13 @@
+　<% if post.favorited?(current_user) %>
+　<!--favorited?メソッドを呼び出し-->
+  <%= link_to post_favorites_path(@post.id), method: :delete do %>
+    <span style='color:red;'>❤︎</span>
+  <% end %>
+  <!--一致するレコードが存在する=いいね済みの場合はdestroyアクションへ-->
+<% else %>
+
+  <%= link_to post_favorites_path(@post.id), method: :post do %>
+    <span>❤︎</span>
+  <% end %>
+  <!--一致するレコードが存在しない=まだいいねしていない場合はcreateアクションへ-->
+<% end %>
