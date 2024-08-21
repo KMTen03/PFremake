@@ -12,7 +12,7 @@ class Publics::RegistrationsController < Devise::RegistrationsController
     end
   end
 
-  private
+  protected
   
   def configure_sign_up_params #新規登録には名前とメアドが必要
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email])
