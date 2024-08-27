@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 2024_08_21_155616) do
     t.string "title", null: false
     t.string "content", null: false
     t.string "time", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "tag"
@@ -105,6 +106,7 @@ ActiveRecord::Schema.define(version: 2024_08_21_155616) do
     t.text "introduce"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "admin", default: false
     t.boolean "is_deleted", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
